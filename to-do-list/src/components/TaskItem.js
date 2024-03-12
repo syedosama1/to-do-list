@@ -3,8 +3,8 @@ import "./TaskItem.css"
 
 const TaskItem = ({ task, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(task.title);
-  const [editedAbout, setEditedAbout] = useState(task.about);
+  const [editedTitle, setEditedTitle] = useState(task ? task.title : "");
+  const [editedAbout, setEditedAbout] = useState(task ? task.about : "");
   const [infoExpanded, setInfoExpanded] = useState(false); 
   const [showConfirmation, setShowConfirmation] = useState(false); 
 
@@ -25,6 +25,10 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
   const cancelDelete = () => {
     setShowConfirmation(false); 
   };
+
+  if (!task) {
+    return <div className="no-tasks">No tasks</div>;
+  }
 
   return (
     <div className="task-item">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TaskList from './TaskList';
-import './AddToDo.css'; // Import your CSS file where you define styles
+import './AddToDo.css'; 
 
 const AddToDo = () => {
   const [tasks, setTasks] = useState([]);
@@ -25,24 +25,22 @@ const AddToDo = () => {
   return (
     <div className="container">
       <div className="input-container">
-        <input
-          className="input-box"
-          type="text"
-          placeholder='Title'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div className="input-container">
-        <input
-          className="input-box"
-          type="text"
-          placeholder='About'
-          value={about}
-          onChange={(e) => setAbout(e.target.value)}
-        />
-      </div>
-      <div className='button-container'>
+        <div className="input-column">
+          <input
+            className="input-box"
+            type="text"
+            placeholder='Title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            className="input-box"
+            type="text"
+            placeholder='About'
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+          />
+        </div>
         <button className="plus-button" onClick={handleAddTask}>+</button>
       </div>
       {/* Display tasks */}
